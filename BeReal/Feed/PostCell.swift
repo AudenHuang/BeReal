@@ -73,6 +73,7 @@ class PostCell: UITableViewCell {
             blurView.isHidden = false
         }
     }
+    
 
     override func prepareForReuse() {
         super.prepareForReuse()
