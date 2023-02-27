@@ -113,7 +113,6 @@ class PostViewController: UIViewController {
         post.imageFile = imageFile
         post.caption = captionTextField.text
         post.location = locLabel.text
-
         // Set the user as the current user
         post.user = User.current
 
@@ -125,9 +124,29 @@ class PostViewController: UIViewController {
                 switch result {
                 case .success(let post):
                     print("✅ Post Saved! \(post)")
+                    // Get the current user
+                    if var currentUser = User.current {
 
-                    // Return to previous view controller
-                    self?.navigationController?.popViewController(animated: true)
+                        // Update the `lastPostedDate` property on the user with the current date.
+                        currentUser.lastPostedDate = Date()
+
+                        // Save updates to the user (async)
+                        currentUser.save { [weak self] result in
+                            switch result {
+                            case .success(let user):
+                                print("✅ User Saved! \(user)")
+
+                                // Switch to the main thread for any UI updates
+                                DispatchQueue.main.async {
+                                    // Return to previous view controller
+                                    self?.navigationController?.popViewController(animated: true)
+                                }
+
+                            case .failure(let error):
+                                self?.showAlert(description: error.localizedDescription)
+                            }
+                        }
+                    }
 
                 case .failure(let error):
                     self?.showAlert(description: error.localizedDescription)
