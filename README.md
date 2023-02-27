@@ -4,7 +4,7 @@ Submitted by: **Auden Huang**
 
 **BeReal** is an app connect to a database via Parse which allows user to signup and login to their account. After login the user can share photos which can be view by other users. The user won't be able to view post that are posted more than 24 hours before their last post.
 
-Time spent: **X** hours spent in total
+Time spent: **3** hours spent in total
 
 ## Required Features
 
