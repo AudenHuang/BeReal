@@ -22,8 +22,6 @@ The following **optional** features are implemented:
 ## Video Walkthrough
 
 [Video Walkthrough](https://imgur.com/a/GZePF2e)
-- User stays logged in when app is closed and open again
-- User is able to logout
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with [Imgur](https://imgur.com)
